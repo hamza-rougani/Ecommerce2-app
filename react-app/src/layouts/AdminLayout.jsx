@@ -2,38 +2,27 @@ import React,{ useEffect,useState} from 'react'
 import { Navigate,Outlet } from 'react-router-dom'
 import { useStateContext } from '../context/ContextProvider';
 import Sidebar from '../components/Admin/Sidebar'
-import axiosClient from '../axios-client';
 function AdminLayout() {
-  const {token ,user,setUser,notification} = useStateContext();
-  const [loading , setLoadin] = useState(false)
+  const {token ,user,notification} = useStateContext();
+  const getUser = localStorage.getItem('user')
+  const traUser = JSON.parse(getUser)
   console.log(notification)
-  useEffect(()=>{
-    axiosClient.get('/user')
-    .then(({data})=>{
-        setUser(data)
-        setLoadin(true)
-        
-         }).catch(err=>{
-          console.log(err)
-          setLoadin(false)
-         })
-         
- },[])
-
+ 
   if(!token){
     return <Navigate to="/Login"/>
       
   }
-
-  if(loading){
-  if(!user.Role){
-    console.log(user.Role)
+  if(!traUser.Role){
     return <Navigate to="/Home"/>
     
   }
-}
+
+ 
+
   return (
     <div className='AdminList'>
+      {console.log("hhhh")}
+      {console.log(traUser)}
       <Sidebar/>
       <Outlet/>
       {notification && 

@@ -1,9 +1,11 @@
 import React from 'react'
-import Table from '../../components/Admin/table'
-function Processed() {
+import ContainerStatus from './ContainerStatus'
+function processed() {
   return (
-    <Table/>
+    <div style={{width:"100%"}}>
+      <ContainerStatus filter = "The product is being processed" Details='DetailsProcessed'/>
+    </div>
   )
 }
 
-export default Processed
+export default processed

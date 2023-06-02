@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Cart;
+use App\Models\Demand;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -28,6 +29,7 @@ class User extends Authenticatable
         'Image',
         'address',
         'numberphone',
+        'city',
         
     ];
 
@@ -52,5 +54,8 @@ class User extends Authenticatable
     //relationship with Cart 
     public function Cart(){
         return $this->hasMany(Cart::class,'user_id');
+    }
+    public function Order(){
+        return $this->hasMany(Demand::class,'user_id');
     }
 }

@@ -5,14 +5,19 @@ import { createContext, useContext, useState } from "react";
     user:null,
     token:null,
     notification:'',
+    countCart:null,
+    countOrder:null,
     setUser:()=>{},
     setToken:()=>{},
-    setNotification:()=>{}
+    setNotification:()=>{},
+    setcountOrder:()=>{},
 })
 
 export const ContextProvider = (props)=>{
     const [user,setUser] = useState({});
     const [notification , _setNotification] = useState('');
+    const [countCart , _setcountCart] = useState(0);
+    const [countOrder , _setcountOrder] = useState(0);
     const [token,_setToken] = useState(localStorage.getItem('ACCESS_TOKEN'));
     // localStorage.getItem('ACCESS_TOKEN')
     const  setToken=(token)=>{
@@ -22,6 +27,12 @@ export const ContextProvider = (props)=>{
         }else{
             localStorage.removeItem('ACCESS_TOKEN')
         }
+    }
+    const  setcountCart=(t)=>{
+        _setcountCart(t)
+    }
+    const  setcountOrder=(t)=>{
+        _setcountOrder(t)
     }
     const setNotification = (message)=>{
         _setNotification(message);
@@ -37,7 +48,11 @@ return(
     setUser,
     setToken,
     notification,
-    setNotification
+    setNotification,
+    countCart,
+    setcountCart,
+    countOrder,
+    setcountOrder
 }}>
 {props.children}
 </StateContext.Provider>)

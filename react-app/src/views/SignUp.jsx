@@ -1,17 +1,18 @@
 import React, { useRef, useState } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import axiosClient from '../axios-client'
 import { useStateContext } from '../context/ContextProvider'
 
 function SignUp() {
   const {setUser,setToken} = useStateContext();
-  const [Errors,setErrors]=useState(null);
+  const [Errors,setErrors]=useState(false);
   const Name = useRef()
   const email = useRef()
   const password = useRef()
   const passwordCon = useRef()
   const phone = useRef()
   const address = useRef()
+  const City = useRef()
   
   const onSubmit =(ev)=>{
       ev.preventDefault()
@@ -21,9 +22,11 @@ function SignUp() {
         password:password.current.value,
         password_confirmation:passwordCon.current.value,
         address:address.current.value,
-        numberphone:phone.current.value
+        numberphone:phone.current.value,
+        city:City.current.value
         
       }
+      console.log(payload)
       axiosClient.post('/signup',payload)
       .then(({data})=>{
         setUser(data.user)
@@ -41,31 +44,38 @@ function SignUp() {
     <div>
        <div className='Register'>
         <div className='ReContainer'>
-        <div className='Logo'>
-          
-        </div>
         <div className='signUp'>
-            <h2>Sign up</h2>
+            <h2>REGISTER</h2>
             <form onSubmit={onSubmit}>
+              <div className='inp'>
                 <input ref={Name} type="text" placeholder='Full Name'/>
                 <input ref={email} type="email" placeholder='Email Address'/>
                 <input ref={password} type="password" placeholder='password'/>
                 <input ref={passwordCon} type="password" placeholder='password confirmation'/>
+              </div>
+              <div className='inp'>
                 <input ref={phone} type="number" placeholder='number phone'/>
-                <textarea ref={address} name="" id="textarea"  rows="3" placeholder='full address'></textarea>
+                <input ref={City} type="text" placeholder='City'/>
+                <input ref={address} name="" id="textarea" type="text" placeholder='full address'/>
+                
                 <button>Sign up</button>
-                <span id='already'>Do have already an account ? <a href="#">Sign in</a></span> 
+                
+                </div>
+                
             </form>
-            <div className='Errors'>
-              {Errors && <>
+            <div className='signin'>IF YOU HAVE ALREADY ACCOUNT ?  <Link id='ty' to='Login'>LOGIN</Link> </div>
+              {Errors ? <>
+                <div className='Errors'>
                {Object.keys(Errors).map(key=>(
                 <p key={key}>{Errors[key][0]}</p>
                )
               )
                }
+               </div>
               </>
+              :""
               }
-            </div>
+            
         </div>
         </div>
     </div>

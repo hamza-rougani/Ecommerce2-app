@@ -1,0 +1,169 @@
+{   
+    "language":"LA LANGUE",
+    "category":"CATÉGORIES",
+    "welcome":"Bienvenue",
+    "welcomeSumi":"Dans ESTEVANICO boutique",
+    "search":"recherche",
+    "home":"ACCEUIL",
+    "carta":"MON PANIER",
+    "PofileMenu":{
+        "profile":"PROFIL",
+        "order":"MES COMMANDES",
+        "admin":"ADMINISTRATEUR",
+        "logout":"SE DÉCONNECTER",
+        "login":"CONNEXION",
+        "register":"S'INSCRIRE"
+
+    }
+    ,
+    "languages":{
+        "ar":"L'ARABE",
+        "en":"L'ANGLAIS",
+        "fr":"FRANCAIS"
+    },
+    "cart":{
+        "summary":"Résumé",
+        "subTotal":"sous-total",
+        "shipping":"Livraison",
+        "total":"Total",
+        "methodPay":"Méthodes de payement",
+        "desPay":"Paiement à réception",
+        "security":"Garantie et sécurité",
+        "securityDes":"RoxShop garantit la sécurité des produits et de la livraison",
+        "shippingtotal":"Total livraison",
+        "buynow":"Acheter",
+        "edit":"modifier"
+      },
+      "buyProduct":{
+          "status":"Ce produit est toujours disponible",
+          "status2":"Ce produit n'est pas disponible",
+          "title":"plus",
+          "description":"Les mots de vêtements montrés avec des images sont utiles pour les apprenants de l'anglais comme langue seconde",
+          "livInfo":"vous permet de livrer des produits par l'intermédiaire de la société de livraison",
+          "more":"",
+          "size":"Taille",
+          "quantity":"Quantité",
+          "deliveryto":"livraison vers",
+          "fromLoc":"De notre site au site de livraison",
+          "timeD":"Le délai de livraison prend entre : 3 - 4 jours.",
+          "addtocart":"Ajouter au panier"
+          
+      },
+      "orders":{
+        "title":"Titre",
+        "titleval":"",
+        "desc":"Description",
+        "descval":"",
+        "price":"Prix",
+        "status":"Statut",
+        "statusVal":"",
+        "category":"catégorie",
+        "categoryval":"",
+        "showprd":"Voir le Produit",
+        "checkout":"vérifie",
+        "space":"Espace privé"
+
+      },
+      "MyInfo":{
+        "name":"Nom",
+        "phone":"Téléphone",
+        "email":"adresse",
+        "email2":"e-mail",
+        "codepostal":"Code Postal",
+        "cart":"Mon panier",
+        "order":"Mes commandes",
+        "favorite":"Favorite",
+        "message":"Message",
+        "send":"envoyer",
+        "cancel":"annuler",
+        "changeInfo":"Change information",
+        "home":"Accueil",
+        "inf":"Mes informations"
+      },
+      "Alertshow":{
+        "title":"Produit ajouté avec succès Choisissez votre direction",
+        "gohome":"Accueil",
+        "continue":"Afficher le panier"
+      },
+      "loading":"Chargement",
+      "footer":{
+        "AboutMe":"About Me",
+        "Services":"Services",
+        "Shippinghandling":"Shipping and handling",
+        "Paymentmethods":"Payment methods",
+        "Printing":"Printing on clothes on demand",
+        "Terms":"Terms and policies",
+        "UserTerms":"User Terms",
+        "Exchange":"Exchange and return policy",
+        "Privacypolicy":"Privacy policy",
+        "Contactus":"Contact us",
+        "SendMessage":"Send Message"
+       },
+       "about":{
+         "Shipping":{
+           "title":"Shipping and Handling",
+           "p1":"Shipping and handling are essential components of any online shopping experience. At our ecommerce store, we are committed to providing you with a seamless and hassle-free shipping and handling process.",
+           "p2":"We want to make sure that your shopping experience with us is as easy and convenient as possible, which is why we offer reliable shipping and handling services for all our products.",
+           "Shipping":"Shipping",
+           "p3":"Our shipping rates are calculated based on the weight and destination of your order, and we strive to provide competitive pricing and fast delivery times.",
+           "Handling":"Handling",
+           "p4":"In addition to shipping, we also take great care to handle your order with the utmost care and attention. This includes carefully packaging your items to ensure they arrive in perfect condition, and processing your order in a timely manner so that it can be shipped out as quickly as possible.",
+           "p5":"To ensure that your shipping and handling experience with us is as smooth as possible, we offer the status of the product so that you can easily track the progress of your shipment. We also provide customer support throughout the shipping and handling process, so if you have any questions or concerns, our team is always available to assist you.",
+           "p6":"At our ecommerce store, we believe that shipping and handling should be hassle-free, reliable, and affordable. That's why we are constantly working to improve our shipping and handling processes to ensure that you receive your products on time and in perfect condition.",
+           "p7":"Thank you for choosing our ecommerce store for your online shopping needs. We look forward to providing you with a seamless shipping and handling experience."
+         },
+         "Paymentmethods":{
+           "title":"payment methods",
+           "p1":"When it comes to running an e-commerce website, offering your customers a variety of payment methods is crucial. One such payment method is 'payment when receiving' or 'pay on delivery' (POD), which allows customers to pay for their purchases when they receive them.",
+           "p2":"With payment upon receipt, customers can choose to pay for their order when they receive it. This can be an attractive option for customers who may not have a credit card or prefer not to enter their payment information online. It can also be a great option for customers who want to verify the condition and quality of the product before making the payment.",
+           "p3":"With payment upon receipt, our customers have the option to pay for their purchases when they receive them, rather than paying upfront. This can be an attractive option for customers who may be hesitant to make online payments or who want to inspect the product before they pay for it."
+         },
+         "Printing":{
+           "title":"Printing on clothes on demand",
+           "p1":"We are thrilled to introduce our latest project - an E-commerce site that offers Printing on Clothes on Demand service. Our goal is to provide you with a unique and personalized shopping experience where you can customize your clothing items to match your style and preferences.",
+           "p2":"Our team of talented designers and printing experts work tirelessly to deliver high-quality, customized clothing items that meet your specific needs. Whether you are looking to promote your brand or create custom merchandise for an event, our Printing on Clothes on Demand service is the perfect solution.",
+           "p3":"At our E-commerce site, we are committed to delivering exceptional customer service and ensuring that each of our customers is satisfied with their experience. Our site offers a user-friendly interface, easy ordering process, and secure payment options to ensure a hassle-free shopping experience.",
+           "p4":"We take pride in our commitment to quality and excellence, and we are confident that our Printing on Clothes on Demand service will exceed your expectations. Thank you for choosing our E-commerce site for all of your customized clothing needs."
+         },
+         "UserTerms":{
+           "title":"User Terms",
+           "p1":"Welcome to our e-commerce website! Before you start using our platform, please take a moment to carefully read and understand these User Terms and Conditions. By accessing or using our website, you acknowledge that you have read, understood, and agree to be bound by these terms.",
+           "p2":"User Accounts: To access certain features of our website, you may need to create a user account. You are solely responsible for maintaining the confidentiality of your account and password, and you agree to accept responsibility for all activities that occur under your account.",
+           "p3":"Ordering: All orders placed through our website are subject to acceptance and availability. We reserve the right to refuse or cancel an order, including but not limited to product availability, errors in product or pricing information.",
+           "p4":"Shipping and Delivery: We will ship your order to the address provided during checkout. Delivery times may vary depending on your location and the shipping method chosen.",
+           "p5":"Returns and Refunds: If you are not satisfied with your purchase, you may be eligible to return the item(s) for a refund or exchange. Please refer to our Returns and ",
+           "return":"Returns and Refunds Policy for more information.",
+           "p6":"Intellectual Property: All content on our website, including but not limited to text, graphics, logos, images, and software, is the property of our company and is protected by copyright laws. You may not reproduce, distribute, modify, or create derivative works based on our content without our prior written consent.",
+           "p7":"Limitation of Liability: We will not be liable for any direct, indirect, incidental, special, or consequential damages arising out of your use of our website or products. Our liability to you in any circumstances shall be limited to the amount paid by you for the product or service."
+         },
+         "Exchange":{
+           "title":"Exchange and return policy",
+           "p1":"At our ecommerce store, we want you to be completely satisfied with your purchase. That's why we offer a flexible exchange and return policy that ensures you get the products you want, hassle-free.",
+           "p2":"If for any reason you are not satisfied with your purchase, you can exchange or return the item(s) within 10 days of the purchase date. Please note that the item(s) must be in their original condition, unused, and with all original tags and packaging intact.",
+           "p3":"To initiate a return or exchange, simply contact our customer service team and provide your order number and reason for the return or exchange. Our team will guide you through the process and provide you with a prepaid shipping label to send the item(s) back to us.",
+           "p4":"Once we receive your returned item(s), we will process your refund or exchange within 7-10 business days. Refunds will be issued to the original payment method used at the time of purchase.",
+           "p5":"Please note that some items, such as personalized or custom-made products, may not be eligible for return or exchange. Additionally, we do not accept returns or exchanges on items that have been damaged due to misuse or improper care.",
+           "p6":"We take pride in our products and stand behind their quality. If you have any questions or concerns about our exchange and return policy, please don't hesitate to contact our customer service team. We are always happy to assist you."
+         },
+         "Privacypolicy":{
+           "title":"Privacy policy",
+           "p1":"At Estevanico, we take your privacy seriously. This policy outlines how we collect, use, and protect your personal information.",
+           "p2":"If you make a purchase on our site, we collect your name, email address, shipping address, and payment information. We may also collect other information you choose to provide, such as your phone number .",
+           "title2":"How do we use your information?",
+           "p3":"We use the information we collect to provide and improve our services to you. This includes processing your orders, communicating with you about your orders, and personalizing your shopping experience on our site.",
+           "title3":"How do we protect your information?",
+           "p4":"We take the security of your personal information seriously and take reasonable measures to protect it from unauthorized access or disclosure. We use industry-standard encryption to protect your payment information during transmission.",
+           "p5":"If you have any questions or concerns about our privacy policy, please contact us at 0767287673."
+ 
+ 
+         }
+       },
+       "abouthome":{
+         "Fastdelivery":"Fast delivery",
+         "d1":"on all orders",
+         "cash":"cash",
+         "d2":"on delivery",
+         "Security":"Security",
+         "d3":"User protection"
+       }
+}

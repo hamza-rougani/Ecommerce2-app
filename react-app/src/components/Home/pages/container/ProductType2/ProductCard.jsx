@@ -1,40 +1,40 @@
 import React from 'react'
 
-function ProductCard() {
+function ProductCard(e) {
   return (
-    <div className='ProductCard move'>
+    <div className='ProductCard'>
         <div className='Pr'>
         <div className='before'>
         <div className='image'>
-          <img src='Images/apple.png'/>
+        <button><img  src={`http://127.0.0.1:8000/storage/${e.PrT.Img1}`}/></button>
          </div>
            <div className='photos'>
             <div className='ulIm'>
-              <button><img src='Images/apple.png'/></button>
-              <button><img src='Images/apple.png'/></button>
-              <button><img src='Images/apple.png'/></button>
-              <button><img src='Images/apple.png'/></button>
+              <button><img  src={`http://127.0.0.1:8000/storage/${e.PrT.Img1}`}/></button>
+              <button><img  src={`http://127.0.0.1:8000/storage/${e.PrT.Img2}`}/></button>
+              <button><img  src={`http://127.0.0.1:8000/storage/${e.PrT.Img3}`}/></button>
+              <button><img  src={`http://127.0.0.1:8000/storage/${e.PrT.Img4}`}/></button>
+
             </div>
            </div>
            </div>
            <div className='after'>
-            <h2>التفاح الاخضر</h2>
+            <h2>{e.PrT.title}</h2>
             <div className='prix'>
-            <span>فقط ب</span>
-            <span id='S'>DH</span>
-              <h1 id='S'>15.99 </h1>
+            <span>Buy now</span>
+            
+              <h3 id='S'>{e.PrT.price} DH</h3>
+              {/* <span id='S'></span> */}
               
               
             </div>
             <ul className='desc'>
-              <li>يتوف العديد من الاشكال</li>
-              <li>يتوف الشحن مجاني في اكادير</li>
-              <li>الثمن المعروض للكيلوا الواحد</li>
-              <li>يمكنكم التواصل معنا الاستفسار</li>
+              <li>{e.PrT.description}</li>
+              
               
             </ul>
             <div className='BuyNow'>
-              <button>اطلب الان</button>
+              <button>Buy now</button>
             </div>
            </div>
         </div>

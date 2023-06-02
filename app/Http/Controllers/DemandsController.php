@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Demand;
+use App\Models\Orders;
 use App\Http\Resources\DemandResource;
 use App\Http\Requests\StoreDemandRequest;
 use App\Http\Requests\UpdateDemandRequest;
+use App\Http\Resources\OrderStatusResource;
 
 class DemandsController extends Controller
 {
@@ -15,7 +15,7 @@ class DemandsController extends Controller
     public function index()
     {
         return DemandResource::collection(
-            Demand::query()->orderBy('id','desc')->paginate(9)
+            Orders::all()
         );
     }
 
@@ -25,32 +25,33 @@ class DemandsController extends Controller
     public function store(StoreDemandRequest $request)
     {
         $data = $request->validated();
-        $id = DB::table('demands')->increment('id_demand');
            $data['user_id']=auth()->id();
-           $order= Demand::create($data);
+           $order= Orders::create($data);
         return response(new DemandResource($order),201);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Demand $demand)
+    public function show(Orders $orders)
     {
-        //
+        
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateDemandRequest $request, Demand $demand)
+    public function update(UpdateDemandRequest $request,Orders $order)
     {
-        //
+        $data=$request->validated();
+        $order->update($data);
+        return response($order);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Demand $demand)
+    public function destroy(Orders $orders)
     {
         //
     }

@@ -1,11 +1,11 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-function table() {
+function table(e) {
   return (
     <div className='ManagUsers'>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'/>
 
-        <div className='UserM'>
+        <div className='UserM OrderBtn'>
         <span>Orders Management</span>
         <div className='addEx'>
             
@@ -19,28 +19,29 @@ function table() {
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Title</th>
-                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Status</th>
                     <th>Date Created</th>
-                    <th>Price</th>
-                    <th>Category</th>
-                    <th>Creator</th>
-                    <th>Actions</th>
+                    <th>product_id</th>
+                    <th>user_id</th>
+                    <th>Action</th>
+                    <th>Show</th>
                 </tr>
             </thead>
             <tbody>
                 
-                 {/* {
-                    products.map((pr)=>{
+                 {
+                    e.Orders.map((pr)=>{
                         return(
                             <tr>
                 
-                            <th>{pr.id}</th>
-                            <th>{pr.title} </th>
-                            <th>{pr.description}</th>
+                            <th>{pr.id_demand}</th>
+                            <th>{pr.Quantity_Order}</th>
+                            <th>{pr.total} </th>
+                            <th>{pr.Status}</th>
                             <th>{pr.created_at}</th>
-                            <th>{pr.price}</th>
-                            <th >{pr.quantity}</th>
+                            <th>{pr.product_id}</th>
                             <th >{pr.user_id}</th>
                             <th>
                             <div className='Action'>
@@ -48,10 +49,11 @@ function table() {
                             <button onClick={ev => onDelete(pr)}  className='btn-delete' style={{background:"none",border:"none",fontSize:"20px"}}><i class='bx bx-x-circle'></i></button>
                             </div>
                             </th>
+                            <th ><Link to={`/${e.Details}/${pr.user_id}`}><button>Details</button></Link></th>
                         </tr>
                         )
                     })
-                } */}
+                }
                 
                
                 

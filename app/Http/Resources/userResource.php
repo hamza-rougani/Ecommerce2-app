@@ -22,6 +22,7 @@ class userResource extends JsonResource
             'Role'=>$this->Role,
             'address'=>$this->address,
             'numberphone'=>$this->numberphone,
+            'city'=>$this->city,
             'Image'=>$this->Image,
             'created_at'=>$this->created_at->format('Y-m-d H:i:s'),
         ];

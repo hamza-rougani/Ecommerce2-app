@@ -4,7 +4,8 @@ import {Link} from 'react-router-dom'
 import { useStateContext } from '../../context/ContextProvider';
 function sidebar() {
   const {user} = useStateContext();
- 
+  const getUser = localStorage.getItem('user')
+  const traUser = JSON.parse(getUser)
   return (
     <div className='sidebar'>
        
@@ -25,18 +26,18 @@ function sidebar() {
             </li>
   
             
-            <Link id="Li" to='/ManagProducts'><li className='a'><i class='bx bxl-quora'></i>Manage Products</li></Link>
-            <Link id="Li" to='/Processed'><li className='a'><i class='bx bxl-quora'></i>The Orders</li></Link>
+            <Link id="Li" to='/ManagProducts'><li className='a'><i class='bx bxl-quora'></i>Products management</li></Link>
+            <Link id="Li" to='/Processed'><li className='a'><i class='bx bxl-quora'></i>Orders management</li></Link>
             
 
            
      
-            {user.SuperAdmin ?
-            <Link id="Li" to='/ManagUsers'><li className='a'><i class='bx bxs-videos'></i>Manage Users</li></Link>
+            {traUser.SuperAdmin ?
+            <Link id="Li" to='/ManagUsers'><li className='a'><i class='bx bxs-videos'></i>Users management</li></Link>
             :
             ""
              }
-          <Link id="Li" to='/ProductsCatalog'><li className='a'><i class='bx bxl-quora'></i>Products Catalog</li></Link>
+          <Link id="Li" to='/Catalog'><li className='a'><i class='bx bxl-quora'></i> Catalog management</li></Link>
             <div className='line'></div>
             <li className='a'><i class='bx bx-log-out'></i>logout</li>
            

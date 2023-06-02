@@ -64,25 +64,30 @@ const onDelete = ()=>{
           onChange={handleChange}
         />
       </div>
+      <div>
       <Link to={`/show/${e.data.product_id}`}>
         <div className='image'>
         <img width="100%" src={`http://127.0.0.1:8000/storage/${e.data.Img1}`}/>
+       {/* <button id='a'> <i class='bx bx-heart'></i></button> */}
         </div>
         </Link>
+        <button id='HEART1' onClick={onDelete}><i class='bx bx-trash'></i></button>
+        </div>
+        
         <div className='titlePrice'>
           <div className='textCon'>
         <div>
         <button id="inStock">In Stock</button><span style={{padding:"0px 5px",opacity:"0.8"}}>
          {e.data.description} .</span>
          </div>
-         <div>
+         <div className='HEART2'>
        <button id='a'> <i class='bx bx-heart'></i></button>
        <button id='a' onClick={onDelete}><i class='bx bx-trash'></i></button>
        </div>
        </div>
        <div className='pCount'>
         <div className='price'>
-          <span id='price'> {e.data.price}.00 DH</span><br/>
+          <span id='price'> {e.data.price} DH</span><br/>
           <span id='Livraison'>+Shipping : {e.data.Shipping}</span>
         </div>
        <div className='squar'>

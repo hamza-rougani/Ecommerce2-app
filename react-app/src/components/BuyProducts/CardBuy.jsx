@@ -30,9 +30,10 @@ const [Qte,setQte] = useState(e.pr.quantityCart)
         </div>
        <div className='squar'>
                 
-            <button onClick={ev=>Qte>1&&setQte(Qte-1)}>-</button>
+            {/* <button onClick={ev=>Qte>1&&setQte(Qte-1)}>-</button>
                 <button>{Qte}</button>
-                <button onClick={ev=>Qte<10&&setQte(Qte+1)}>+</button>
+                <button onClick={ev=>Qte<10&&setQte(Qte+1)}>+</button> */}
+                <button>{Qte}</button>
             </div>
         </div>
         </div>

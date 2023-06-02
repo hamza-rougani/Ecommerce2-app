@@ -68,7 +68,7 @@ const onDelete = (e)=>{
                 
                             <th>{pr.id}</th>
                             <th>{pr.title} </th>
-                            <th>{pr.description}</th>
+                            <th>{pr.sumi_description}</th>
                             <th>{pr.created_at}</th>
                             <th>{pr.price}</th>
                             <th >{pr.quantity}</th>

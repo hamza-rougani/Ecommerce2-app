@@ -5,26 +5,23 @@ import axiosClient from '../axios-client'
 import { useNavigate,useParams } from 'react-router-dom'
 import AlertCart from './alertCart'
 import { useStateContext } from '../context/ContextProvider'
+import Shipping from './demand/Shipping'
+import {useTranslation} from "react-i18next"
 function show() {
     const {id} = useParams()
     const [loading,setLoading] = useState(false)
     const [products,setProducts]=useState({id:null,title:"",description:"",quantity:"",category:"",price:""})
     const [Qt,setQt] = useState(1)
     const [displayAlert,setAlert] = useState(false)
-    const [notification,setNotification] = useState(null)
+    const {notification,setNotification} = useStateContext()
+    const [Shipi,setShipi] = useState()
     const navigate = useNavigate()
-    useEffect(()=>{
-       
-            setTimeout(()=>{
-                setNotification(null);
-            },5000)
-        
-    },[])
+
 if(id){
     useEffect(()=>{
     setLoading(true)
     setLoading(true)
-    axiosClient.get(`/products/${id}`)
+    axiosClient.get(`/getProduct/${id}`)
     .then((data)=>{
         setLoading(false)
         //  debugger;
@@ -57,14 +54,19 @@ if(id){
   })
   }
   const BuyPr =()=>{
-    const payload =[{...products,quantityCart:Qt}]
+    const payload =[{...products,quantityCart:Qt,product_id:products.id}]
     const ProductBuy = JSON.stringify(payload);
    localStorage.setItem('Products',ProductBuy)
    console.log(localStorage.getItem('Products'))
      navigate('/BuyProduct')
   }
+  const {t} = useTranslation()
   return (
     <div className='PresentProduct'>
+        <Shipping t={{quantityCart:Qt,Shipping:products.Shipping}} setShipi={setShipi}/>
+        {console.log("SHIPI")}
+        {console.log(Shipi)}
+
         {displayAlert?<AlertCart setAl={setAlert}/>:""}
         
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'/>
@@ -79,7 +81,7 @@ if(id){
             <div className='bigImage'>
             <Swiper Images={[products.Img1,products.Img2,products.Img3,products.Img4]} />
             <div className="navigation-manual">
- </div>
+             </div>
                 {/* <img width="100%" src='https://www.pngmart.com/files/16/Fresh-Chocolate-Cake-Transparent-Background.png'/> */}
             </div>
             <div className='prototype'>
@@ -102,32 +104,47 @@ if(id){
                 <img width='100%' src={`http://127.0.0.1:8000/storage/${products.Img4}`}/> </div>
             </label>
             </div>
-           
+            {/* <div className='ADDTOCART'>
+                <button className='btn ' onClick={AddToCart}><i class='bx bx-cart'></i>{t('buyProduct.addtocart')}</button>
+               <button className='btn ' onClick={BuyPr}><i class='bx bx-cart'></i>{t('cart.buynow')}</button>
+                <button id='btn3'><i class='bx bx-heart'></i>18</button>
+            </div> */}
         </div>
         <div className='BuyInfo'>
-           <h5 id='titleUpper'>TITLE</h5>
            <p id="titleP">{products.title}</p>
            {products.quantity>0?
-           <button id="inStock">In Stock</button>:
-           <button id="soldout">Sold Out</button>
+           <button id="inStock">{t('buyProduct.status')}</button>:
+           <button id="soldout">{t('buyProduct.status2')}</button>
            }
-           <div class="price">
-            <span>${products.price}</span>
-           <span id='promo'>RRP <del>$ 44 </del><font>SAVE $10.00</font> </span>
+           <div className='des'>{products.description}</div>
+           {/* <div className='des'>{t('buyProduct.description')}</div> */}
+           <div className='t'>
+           <div class="priceAA">
+          <div>{products.price} dh</div>  
+          </div>
+           
+           <button id='whatsapp'><i class='bx bxl-whatsapp'></i> whatsapp</button>
+        
            </div>
+           
+           <hr/>
+           
           
-           <div className='orders'>Available for orders $40 and above <span>BinoFood </span> <a href='#'>more info</a></div>
-           <h5>SIZE</h5>
-           <select>
-            <option>Please Select</option>
-            <option>1</option>
-            <option>1</option>
-           </select>
+           <div className='orders'><span>RoxShop </span> {t('buyProduct.livInfo')}<a href='#'> {t('buyProduct.more')} ...  </a></div>
+          <div className='size'>
+            <h3>{t('buyProduct.size')}</h3>
+            <div className='sizes'>
+                <div className='a'>XXL</div>
+                <div className='a'>XL</div>
+                <div className='a'>ML</div>
+                <div className='a'>L</div>
+            </div>
+          </div>
        
           
            <div className='Quantity'>
             <div className='AA'>
-            <h5>Quantity</h5>
+            <h3>{t('buyProduct.quantity')}: </h3>
             <div className='squar'>
                 
                 <button onClick={e=>Qt>1&&setQt(Qt-1)}>-</button>
@@ -138,15 +155,15 @@ if(id){
             
            </div>
            <div className='Livraison'>
-           <span id="span1"> Livré vers <i class='bx bx-location-plus'></i><a style={{textDecoration:"none",color:"blue"}} href=""> Morocco</a></span>
-           <span id="span2">Livraison Free </span>
-           <span id="span3"> De Agadir via RoxTech Standard Shipping </span>
-            Date de livraison estimée: 21 . 
+           <span id="span1"> {t('buyProduct.deliveryto')}<i class='bx bx-location-plus'></i><a style={{textDecoration:"none",color:"blue"}} href=""> Morocco</a></span>
+           <span id="span2"> {t('cart.shipping')} {Shipi} DH </span>
+           <span id="span3">{t('buyProduct.fromLoc')}</span>
+           {t('buyProduct.timeD')}
            </div>
            <div className='ADDTOCART'>
-                <button className='btn btn1' onClick={AddToCart}><i class='bx bx-cart'></i> ADD TO CART</button>
-               <button className='btn btn2' onClick={BuyPr}><i class='bx bx-cart'></i> bUY NOW</button>
-                <button className='btn3'><i class='bx bx-heart'></i>18</button>
+                <button className='btn ' onClick={AddToCart}><i class='bx bx-cart'></i>{t('buyProduct.addtocart')}</button>
+               <button className='btn ' onClick={BuyPr}><i class='bx bx-cart'></i>{t('cart.buynow')}</button>
+                
             </div>
         </div>
     </div>
@@ -163,6 +180,7 @@ if(id){
     Loading...
     </div>
         }
+    
 </div>
   )
 }

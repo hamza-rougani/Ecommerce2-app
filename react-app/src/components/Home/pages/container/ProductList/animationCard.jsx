@@ -4,7 +4,7 @@ import React, { useRef } from 'react'
 function AnimationCard() {
    
   return (
-    <div className='animationCard move'>
+    <div className='animationCard'>
          <div className='ContentA'>
             <div className='content'>
             <div className='HeaderCard'>
@@ -20,11 +20,11 @@ function AnimationCard() {
          </div>
          <div className='owenPr'>
          <div className='imageA'>
-          <img src='Images/pngfood.png' width='60%'/>
+          {/* <img src='Images/pngfood.png' width='60%'/> */}
           </div>
-            <div className='textA'>
+            {/* <div className='textA'>
           <h1>Get<br/> your product<br/> quickly</h1>
-          </div>
+          </div> */}
          </div>
 
             </div>

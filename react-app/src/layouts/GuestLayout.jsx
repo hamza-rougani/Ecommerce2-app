@@ -1,7 +1,7 @@
 import React from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
 import { useStateContext } from '../context/ContextProvider'
-
+import Header  from '../views/header'
 function GuestLayout() {
   const {token,notification} = useStateContext();
    if(token){
@@ -9,6 +9,7 @@ function GuestLayout() {
    }
   return (
     <div>
+      <Header/>
       <Outlet/>
       {notification && 
           <div className='notification'>

@@ -14,17 +14,18 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar'
+import About from '../../views/Header/About';
+
+
 
 function App() {
   return (
     <div className="App">
-      <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'/>
       <Lnading/>
       <Animation/>
-      <div className='co'>
-          <Container/>
-          <Footer/>
-      </div>
+      <Container/>
+      <About/>
+      <Footer/>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet,Link } from 'react-router-dom'
 import axiosClient from '../axios-client'
 import { useStateContext } from '../context/ContextProvider'
 function Login() {
@@ -19,6 +19,7 @@ function Login() {
       .then(({data})=>{
         setUser(data.user)
         setToken(data.token)
+        localStorage.setItem('user',data.user)
         if(data.message){
           setErrors({
             email:[data.message]
@@ -51,15 +52,18 @@ function Login() {
     <div className='Logo'>
       
     </div>
-    <div className='signUp'>
-        <h2>Login</h2>
+    <div className='LOGIN'>
+      <div>
+        <h2>LOGIN</h2>
         <form onSubmit={onSubmit}>
+        <div className='inp'>
             <input ref={email} type="email" placeholder='Email Address'/>
             <input ref={password} type="password" placeholder='password'/>
             <button>Login</button>
-            <p id='already'>If you don't have account ! <a href="#">Sign up</a></p> 
+          </div>
         </form>
-        
+        <div className='signin'>IF YOU HAVE ALREADY ACCOUNT ?  <Link id='ty' to='SignUp'>LOGIN</Link> </div>
+        </div>
               {errors && 
               <div className='Errors'>
                {Object.keys(errors).map(key=>(

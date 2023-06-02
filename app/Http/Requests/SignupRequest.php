@@ -29,7 +29,8 @@ class SignupRequest extends FormRequest
                 'confirmed',
             ],
             'address'=>'required',
-            'numberphone'=>'required|min:10|max:13',    
+            'numberphone'=>'required|min:10|max:13', 
+            'city'=>'required'   
         ];
     }
 }

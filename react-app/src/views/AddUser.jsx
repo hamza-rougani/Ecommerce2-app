@@ -6,9 +6,9 @@ function AddUser() {
   const {notification,setNotification} = useStateContext()
   const [Errors,setErrors] = useState()
   const navigate = useNavigate();
-  const [loading,setLoading]=useState(false)
+  const [loading,setLoading]=useState(true)
 const {id} = useParams()
-const [user,setUser] = useState({id:null,name:"",email:"",password:"",password_confirmation:"",Role:"",Image:""})
+const [user,setUser] = useState({id:null,name:"",email:"",password:"",password_confirmation:"",Role:"",Image:"",address:"",numberphone:""})
 if(id){
   useEffect(()=>{
       axiosClient.get(`/users/${id}`)
@@ -30,6 +30,7 @@ const onSubmit = (event)=>{
     .then(()=>{
         //to do show notification
          setNotification("User was successfuly updated")
+         console.log(user)
       navigate('/ManagUsers')
     })
     .catch(err=>{
@@ -70,19 +71,23 @@ return (
         <div className='signUp'>
             <h2>Create User</h2>
             <form onSubmit={onSubmit}>
+            <div className='inp'>
                 <input value={user.name} onChange={ev => setUser({...user,name:ev.target.value})} type="text" placeholder='Full Name'/>
                 <input value={user.email} onChange={ev=> setUser({...user,email:ev.target.value})} type="email" placeholder='Email Address'/>
                 <input  onChange={ev=>setUser({...user,password:ev.target.value})} type="password" placeholder='password'/>
                 <input  onChange={ev=>setUser({...user,password_confirmation:ev.target.value})} type="password" placeholder='password confirmation'/>
+               </div>
+               <div className='inp'>
+                <input value={user.numberphone} onChange={ev=>setUser({...user,numberphone:ev.target.value})} type="number" placeholder='numberphone'/>
+                <input id='textarea' value={user.address} name="" placeholder='address' cols="30" rows="0" onChange={ev=>setUser({...user,address:ev.target.value})}/>
                 <label style={{fontSize:"15px" ,opacity:"0.6"}}>Role : {
                 <>{user.Role?"Admin":"User"}
                 </>
                 }</label>
-                <select value={user.Role} onChange={ev=>setUser({...user,Role:ev.target.value})}>
-                  <option value="User">User</option>
-                  <option value="Admin">Admin</option>
-                  
-                  <option value="SuperAdmin">SuperAdmin</option>
+                <select  onChange={ev=>setUser({...user,Role:parseInt(ev.target.value)})}>
+                  <option value="0">choose role</option>
+                  <option value="0">User</option>
+                  <option value="1">Admin</option>
                 </select>
                 <div className='btnAdmin'>
                   
@@ -90,8 +95,9 @@ return (
                  
                 
                 <button>Add Image</button>
+
                 </div>
-  
+                </div>
             </form>
             
                {Errors && 

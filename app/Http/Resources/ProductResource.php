@@ -17,8 +17,10 @@ class ProductResource extends JsonResource
     {
         return [
             'id'=>$this->id,
+            'Type'=>$this->Type,
             'title'=>$this->title,
             'description'=>$this->description,
+            'sumi_description'=>$this->sumi_description,
             'quantity'=>$this->quantity,
             'category'=>$this->category,
             'price'=>$this->price,
@@ -30,6 +32,7 @@ class ProductResource extends JsonResource
             'Img2'=>$this->Img2,
             'Img3'=>$this->Img3,
             'Img4'=>$this->Img4,
+
             
         ];
     }

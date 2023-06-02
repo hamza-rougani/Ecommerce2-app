@@ -27,7 +27,11 @@ class StoreUserRequest extends FormRequest
             'password'=>[
                 'required',
                 'confirmed',
-            ]
+            ],
+            'Role'=>'required',
+            'numberphone'=>'required|string|max:13|min:9',
+            'address'=>'required',
+            'city'=>'required'
         ];
     }
 }

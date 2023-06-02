@@ -28,6 +28,7 @@ class CartResource extends JsonResource
             "Shipping"=>$this->Shipping,
             
             
+            
         ];
     }
 }

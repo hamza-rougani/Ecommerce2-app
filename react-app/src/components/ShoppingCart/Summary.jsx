@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom'
 function Summary(e) {
   const navigate = useNavigate()
@@ -31,23 +32,28 @@ const checkout = ()=>{
 //  const SummaryInfo = JSON.stringify(SummaryPay);
 //  localStorage.setItem('Summary',SummaryInfo)
  console.log(localStorage.getItem('Products'))
-    navigate('/BuyProduct')
+     navigate('/BuyProduct')
 }
+const {t} = useTranslation()
   return (
     <div className='pay'>
-    <div className='summary'>
-      <h2>Summary</h2>
+
+    {/* <div className='summary'>
+    <h2><img src='https://cdn-icons-png.flaticon.com/128/4290/4290854.png' width="40px"/>SHOPPING CART</h2>
+
+      <div className='SummaryTi'>{t('cart.summary')}</div>
       <div className='total'>
-      <span id='price'>Subtotal</span>
-      <span id='price'>{Subtotal} DH</span>
+      <span id='price'>{t('cart.subTotal')} :
+</span>
+      <span id='price'>{Subtotal.toFixed(2)} DH</span>
       </div>
       <div className='total'>
-      <span id='price'>Shipping</span>
-      <span id='price'>{Shipping} DH</span>
+      <span id='price'>{t('cart.shipping')} : </span>
+      <span id='price'>{parseFloat(Shipping).toFixed(2)} DH</span>
       </div>
       <div className='total'>
-      <span id='price'>Total</span>
-      <span id='price'>{Total} DH</span>
+      <span id='price'>{t('cart.total')}</span>
+      <span id='price'>{Total.toFixed(2)} DH</span>
       </div>
       {count>0 ?
       <button className='Checkout Checkout1' onClick={checkout}>Checkout({count})</button>
@@ -57,16 +63,46 @@ const checkout = ()=>{
     </div>
     <div className='Payment'>
     <div className='Bu1'>
-    <div id='h3'>Payment methods</div>
-    <span style={{opacity:"0.7"}}>Paiement when recieving</span>
+    <div id='h3'>{t('cart.methodPay')}</div>
+    <span style={{opacity:"0.7"}}>{t('cart.desPay')}</span>
     </div><br/>
     <div className='Bu1'>
-    <div id='h3'>Buyer Protection</div>
+    <div id='h3'>{t('cart.security')}</div>
     <div className='Security'>
-    <img width="20px" src="Images/Security.png"/><span>Get full refund if the item is not as described or if is not delivered</span>
+    <img width="20px" src="Images/Security.png"/><span id=''>{t('cart.securityDes')}</span>
     </div>
     </div>
+    </div> */}
+
+
+    <div className='searchInfo'>
+    <div className='sideMenu'>
+        <div className='M'>
+        <span id='chevron-left'><i class='bx bx-shopping-bag'></i></span>
+        <span>SHOPPING CART</span>
+        </div>
+        <div className='button'>
+            <button>{t('cart.summary')}</button>
+        </div>
+        <div className='categoryMen'>
+          <ul>
+            <li>{t('cart.subTotal')}  <span id="new">{Subtotal.toFixed(2)} DH</span></li>
+            <li>{t('cart.shipping')} <span id="new">{parseFloat(Shipping).toFixed(2)}</span></li>
+            <li>{t('cart.total')} <span id="new">{Total.toFixed(2)}</span></li>
+            <li id="methodPay"><span>{t('cart.methodPay')}</span> <span id='p'>{t('cart.desPay')}</span></li>
+            <li id="methodPay"><span>{t('cart.security')}</span> <span id='p'>{t('cart.securityDes')}</span></li>
+
+          </ul>
+        </div>
+        <div className='payme'>
+            {count>0 ?
+            <button className='check check1' onClick={checkout}>Checkout({count})</button>
+         :
+        <button className='check check2' disabled>Checkout({count})</button>
+      }
+        </div>
     </div>
+</div>
     </div>
   )
 }

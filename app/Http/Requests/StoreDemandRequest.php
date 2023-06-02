@@ -22,7 +22,11 @@ class StoreDemandRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "total"=>'required',
+            "product_id"=>'required',
+            "Status"=>'required',
+            "Quantity_Order"=>'required',
+            "TotalShipping"=>'required'
         ];
     }
 }

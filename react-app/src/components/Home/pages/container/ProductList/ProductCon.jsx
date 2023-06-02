@@ -2,6 +2,7 @@ import React, { useEffect,useState } from 'react'
 import { Link } from 'react-router-dom'
 import axiosClient from '../../../../../axios-client'
 import PrCard from './PrCard'
+import Loading from '../../../../../views/loadings/Loading'
 
 function ProductCon() {
   const [products,setProducts] = useState()
@@ -11,7 +12,7 @@ useEffect(()=>{
     getProducts();
 },[])
 const getProducts = ()=>{
-    axiosClient.get('/products')
+    axiosClient.get('/getProduct')
     .then(({data})=>{
        setProducts(data.data)
        setLoading(true)
@@ -22,22 +23,22 @@ const getProducts = ()=>{
 }
   return (
     <div className='ProductCon'>
-        <div className='sumi'>
-          {loading?
-          <>
+      <div className='sumi'>
+      {loading?
+      <>
           {
                     products.map((pr)=>{
                     return(
                           <PrCard product={pr}/>
                     )
                   })
-          }
-          </>
-          :"loading"}
-        
-        
-  
-        </div>
+       
+      }
+         </>
+         :
+         <Loading/>
+         }
+         </div>
     </div>
   )
 }

@@ -2,39 +2,26 @@ import React,{ useEffect,useState} from 'react'
 import { Navigate,Outlet } from 'react-router-dom'
 import { useStateContext } from '../context/ContextProvider';
 import Sidebar from '../components/Admin/Sidebar'
-import axiosClient from '../axios-client';
 function SuperAd() {
   const {token ,user,setUser,notification} = useStateContext();
-  const [loading , setLoadin] = useState(false)
-  useEffect(()=>{
-    axiosClient.get('/user')
-    .then(({data})=>{
-        setUser(data)
-        setLoadin(true)
-        
-         }).catch(err=>{
-          console.log(err)
-          setLoadin(false)
-         })
-         
- },[])
- 
+  const getUser = localStorage.getItem('user')
+  const traUser = JSON.parse(getUser)
   if(!token){
     return <Navigate to="/Login"/>
       
   }
-  if(loading){
-  if(!user.Role){
+
+  if(!traUser.Role){
     return <Navigate to="/Home"/>
   }
-  if(!user.SuperAdmin){
+  if(!traUser.SuperAdmin){
     return <Navigate to="/ManagProducts"/>
   }
-}
 
   return (
     <div className='AdminList'>
-      <Sidebar user={user}/>
+      {console.log(user.Role)}
+      <Sidebar/>
       {notification && 
           <div className='notification'>
            {notification}
