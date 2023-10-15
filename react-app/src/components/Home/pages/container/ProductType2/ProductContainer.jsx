@@ -10,8 +10,7 @@ function ProductContainer() {
     .then(({data})=>{
       console.log(data.data)
       setPrC2(data.data)
-      setloading(true)
-    
+      localStorage.setItem("productType2",JSON.stringify(data.data))
     })
     .catch(err=>{
       console.log(err)
@@ -19,10 +18,10 @@ function ProductContainer() {
   },[])
   return (
     <div className='ProductContainer'>
-      {loading? 
+      {localStorage.getItem("productType2")? 
       <>
       {
-        PrC2.map((r)=>{
+        JSON.parse(localStorage.getItem("productType2")).map((r)=>{
           return(
             <>
         <ProductCard PrT={r}/>

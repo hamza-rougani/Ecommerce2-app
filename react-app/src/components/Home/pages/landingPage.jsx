@@ -14,7 +14,9 @@ function landingPage() {
     .then(({data})=>{
       console.log(data.data)
       setcatalogs(data.data)
-      setloading(true)
+      let cata = JSON.stringify(data.data)
+      localStorage.setItem("catalogs",cata)
+      
     }).catch(err=>{
       console.log(err)
     })
@@ -23,9 +25,9 @@ function landingPage() {
     <div className='landing'>
       <Introduction/>
       {/* <About/> */}
-      {loading?
+      {localStorage.getItem("catalogs")?
       <>
-      {catalogs.map(c=><SlideImage ca={c}/>)}
+      {JSON.parse(localStorage.getItem("catalogs")).map(c=><SlideImage ca={c}/>)}
       </>
       :
      <Loading/>

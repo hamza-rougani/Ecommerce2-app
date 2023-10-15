@@ -4067,6 +4067,7 @@ font-weight: 400;
     border: none;
     background-color: #f4bf3c;
   color: #fff;
+  padding: 10px;
   }
   /* .ProductSlide  .swiper-slide-next {
     
@@ -4082,7 +4083,7 @@ font-weight: 400;
 
   }
   .ProductSlide .swiper-pagination{
-    transform: translateY(10px);
+    transform: translateY(20px);
   }
   
 @media screen and (max-width:1100px){
@@ -4715,6 +4716,12 @@ font-weight: 400;
       
       
       }
+       .ProductCon .sumi{
+      width: 90%;
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      
+     }
     .MyInfo .twoclass {
   width: 80%;
     }
